@@ -1,4 +1,12 @@
-public class FoodInADish <T> extends DrawableObj implements Comparable <FoodInADish<T>>{
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+
+
+    public class FoodInADish <T> extends DrawableObj implements Comparable <FoodInADish<T>>{
     T food;
     String dishColor;
 
@@ -54,6 +62,16 @@ public class FoodInADish <T> extends DrawableObj implements Comparable <FoodInAD
         }
         return 1;
     }
+    @Override
+    public JPanel draw() throws IOException {
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
 
+        this.food = new Image[5];
+        for(int i=0;i<5;i++)
+            food[i] = new ImageIcon("resources/block"+i+".png").getImage();
+        this.currentIndex=0;
+        this.currentBlock=blocks[currentIndex];
+//
 
 }
